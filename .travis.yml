@@ -1,0 +1,21 @@
+language: php
+
+php:
+    - 5.4
+    - 5.5
+    - hhvm
+
+matrix:
+    fast_finish: true
+    allow_failures:
+        - php: hhvm
+
+before_script:
+    - composer self-update
+    - composer update
+
+script:
+    - cd $TRAVIS_BUILD_DIR
+    - vendor/bin/phpunit -c test/phpunit.xml --coverage-clover=./build/clover.xml
+    - vendor/bin/spiffy-cc build/clover.xml 100
+    - vendor/bin/coveralls -v
