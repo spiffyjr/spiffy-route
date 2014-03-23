@@ -14,8 +14,6 @@ Additionally, you can download or clone the repository and setup your own autolo
 ## Adding routes
 
 ```php
-<?php
-
 use Spiffy\Router\Router;
 
 $router = new Router();
@@ -49,8 +47,6 @@ $router->add('foo', '/foo/{id:\d+}{-slug?:[a-zA-Z-_]+}');
 ## Assembling named routes to url's
 
 ```php
-<?php
-
 use Spiffy\Router\Router;
 
 $router = new Router();
@@ -71,8 +67,6 @@ echo $router->assemble('foo', ['id' => 1, 'slug' => 'bar']);
 ## Matching routes
 
 ```php
-<?php
-
 use Spiffy\Router\Router;
 
 $router = new Router();
