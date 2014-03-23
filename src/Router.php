@@ -10,6 +10,11 @@ class Router
     protected $routes;
 
     /**
+     * @var RouteFactory
+     */
+    protected $routeFactory;
+
+    /**
      * Constructor.
      */
     public function __construct()
