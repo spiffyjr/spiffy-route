@@ -7,10 +7,9 @@ class RouteFactory
     /**
      * @param string $name
      * @param string $path
-     * @param array $spec
      * @return Route
      */
-    public function create($name, $path, array $spec = [])
+    public function create($name, $path)
     {
         return new Route($name, $path);
     }

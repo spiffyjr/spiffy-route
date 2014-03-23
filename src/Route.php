@@ -41,10 +41,9 @@ class Route
 
     /**
      * @param string $uri
-     * @param array $server
      * @return bool|RouteMatch
      */
-    public function match($uri, array $server = null)
+    public function match($uri)
     {
         $this->init();
 
