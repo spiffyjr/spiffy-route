@@ -67,3 +67,34 @@ echo $router->assemble('foo', ['id' => 1]);
 // outputs '/foo/1-bar'
 echo $router->assemble('foo', ['id' => 1, 'slug' => 'bar']);
 ```
+
+## Matching routes
+
+```php
+<?php
+
+use Spiffy\Router\Router;
+
+$router = new Router();
+$router->add('foo', '/foo');
+
+// result is NULL
+echo $router->match('/bar');
+
+// result is an instance of Spiffy\Router\RouteMatch
+$match = $router->match('/foo');
+
+// output is 'foo'
+echo $match->getName();
+
+$router->add('bar', '/bar/{id}');
+
+// result is an instance of Spiffy\Router\RouteMatch
+$match = $router->match('/bar/1');
+
+// output is 'bar'
+echo $match->getName();
+
+// output is '1'
+echo $match->get('id');
+```
