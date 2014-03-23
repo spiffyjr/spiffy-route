@@ -19,3 +19,7 @@ script:
     - vendor/bin/phpunit -c test/phpunit.xml --coverage-clover=./build/clover.xml
     - vendor/bin/spiffy-cc build/clover.xml 100
     - vendor/bin/coveralls -v
+
+after_script:
+    - wget https://scrutinizer-ci.com/ocular.phar
+    - php ocular.phar code-coverage:upload --format=php-clover ./build/clover.xml
