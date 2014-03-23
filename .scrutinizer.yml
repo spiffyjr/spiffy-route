@@ -5,9 +5,7 @@ filter:
     paths: [src/*]
 
 build_failure_conditions:
-    - 'elements.rating(<= A).exists'
     - 'issues.label("coding-style").exists'
-    - 'project.metric("scrutinizer.quality", < 10)'
     - 'project.metric("scrutinizer.test_coverage", < 1)'
 
 tools:

@@ -1,7 +1,7 @@
 # SpiffyRouter
 
 [![Build Status](https://travis-ci.org/spiffyjr/spiffy-router.svg)](https://travis-ci.org/spiffyjr/spiffy-router)
-[![Coverage Status](https://coveralls.io/repos/spiffyjr/spiffy-router/badge.png)](https://coveralls.io/r/spiffyjr/spiffy-router)
+[![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/badges/coverage.png?s=ef1ff5a501ca851edf629fbf1fe85f66b7616672)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/badges/quality-score.png?s=c538c960c0d883f379b700eecdee865d08a532e3)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/)
 
 ## Installation
