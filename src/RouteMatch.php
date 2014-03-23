@@ -16,7 +16,7 @@ class RouteMatch
 
     /**
      * @param Route $route
-     * @param array $params
+     * @param string[] $params
      */
     public function __construct(Route $route, array $params = [])
     {
