@@ -80,7 +80,7 @@ class Route
             }
         }
 
-        $replace = function($matches) use ($params) {
+        $replace = function ($matches) use ($params) {
             if (isset($params[$matches[2]])) {
                 return $matches[1] . $params[$matches[2]];
             }
