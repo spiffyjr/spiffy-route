@@ -10,7 +10,7 @@
         </whitelist>
     </filter>
     <testsuites>
-        <testsuite name="Spiffy\Events">
+        <testsuite name="Spiffy\Router">
             <directory>.</directory>
         </testsuite>
     </testsuites>
