@@ -12,7 +12,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0",
-        "spiffy/spiffy-coverage-checker": "~1.0"
+        "spiffy/spiffy-coverage-checker": "~1.0",
+        "squizlabs/php_codesniffer": "~1.0"
     },
     "autoload": {
         "psr-4": {

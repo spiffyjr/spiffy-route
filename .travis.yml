@@ -18,6 +18,7 @@ script:
     - cd $TRAVIS_BUILD_DIR
     - vendor/bin/phpunit -c test/phpunit.xml --coverage-clover=./build/clover.xml
     - vendor/bin/spiffy-cc build/clover.xml 100
+    - vendor/bin/phpcs --standard=PSR2 -s -p src/
 
 after_script:
     - wget https://scrutinizer-ci.com/ocular.phar
