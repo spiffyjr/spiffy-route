@@ -1,4 +1,4 @@
-# SpiffyRouter
+# SpiffyRoute
 
 [![Build Status](https://travis-ci.org/spiffyjr/spiffy-route.svg)](https://travis-ci.org/spiffyjr/spiffy-route)
 [![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/coverage.png?s=ef1ff5a501ca851edf629fbf1fe85f66b7616672)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
