@@ -1,9 +1,9 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 /**
- * @coversDefaultClass Spiffy\Router\Route
+ * @coversDefaultClass Spiffy\Route\Route
  */
 class RouteTest extends \PHPUnit_Framework_TestCase
 {
@@ -53,7 +53,7 @@ class RouteTest extends \PHPUnit_Framework_TestCase
         $route = new Route('foo', '/foo/{id}');
         $match = $route->match('/foo/bar');
 
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $match);
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $match);
         $this->assertSame($route, $match->getRoute());
         $this->assertSame('bar', $match->get('id'));
     }
@@ -67,7 +67,7 @@ class RouteTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($route->match('/foo/bar'));
 
         $match = $route->match('/foo/1234');
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $match);
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $match);
         $this->assertSame($route, $match->getRoute());
         $this->assertSame('1234', $match->get('id'));
     }
@@ -80,19 +80,19 @@ class RouteTest extends \PHPUnit_Framework_TestCase
         $route = new Route('foo', '/foo/{id:\d+}{-slug?}');
 
         $match = $route->match('/foo/1');
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $match);
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $match);
         $this->assertSame('1', $match->get('id'));
         $this->assertEmpty($match->get('slug'));
 
         $match = $route->match('/foo/1-testing');
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $match);
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $match);
         $this->assertSame('1', $match->get('id'));
         $this->assertSame('testing', $match->get('slug'));
     }
 
     /**
-     * @covers ::assemble, ::init, \Spiffy\Router\Exception\MissingParameterException::__construct
-     * @expectedException \Spiffy\Router\Exception\MissingParameterException
+     * @covers ::assemble, ::init, \Spiffy\Route\Exception\MissingParameterException::__construct
+     * @expectedException \Spiffy\Route\Exception\MissingParameterException
      * @expectedExceptionMessage Cannot assemble route "foo": missing required parameter "id"
      */
     public function testAssembleThrowsExceptionOnMissingRequiredParameter()

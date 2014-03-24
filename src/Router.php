@@ -1,6 +1,6 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 class Router
 {
@@ -24,7 +24,7 @@ class Router
     }
 
     /**
-     * @return \Spiffy\Router\Route[]
+     * @return \Spiffy\Route\Route[]
      */
     public function getRoutes()
     {
@@ -36,7 +36,7 @@ class Router
      * @param string $path
      * @param array $options
      * @throws Exception\RouteExistsException
-     * @return \Spiffy\Router\Route
+     * @return \Spiffy\Route\Route
      */
     public function add($name, $path, array $options = [])
     {

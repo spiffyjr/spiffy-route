@@ -1,6 +1,6 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 class RouteFactory
 {

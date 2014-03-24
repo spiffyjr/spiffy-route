@@ -1,6 +1,6 @@
 <?php
 
-namespace Spiffy\Router\Exception;
+namespace Spiffy\Route\Exception;
 
 class MissingParameterException extends \InvalidArgumentException
 {

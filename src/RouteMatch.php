@@ -1,6 +1,6 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 class RouteMatch
 {
@@ -43,7 +43,7 @@ class RouteMatch
     }
 
     /**
-     * @return \Spiffy\Router\Route
+     * @return \Spiffy\Route\Route
      */
     public function getRoute()
     {

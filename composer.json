@@ -1,12 +1,12 @@
 {
-    "name": "spiffy/spiffy-router",
+    "name": "spiffy/spiffy-route",
     "authors": [
         {
             "name": "Kyle Spraggs",
             "email": "theman@spiffyjr.me"
         }
     ],
-    "description": "SpiffyRouter is a light-weight, HHVM compatible, and dependency free router library.",
+    "description": "SpiffyRoute is a light-weight, HHVM compatible, and dependency free router library.",
     "require": {
         "php": ">=5.4"
     },
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Spiffy\\Router\\": "src/"
+            "Spiffy\\Route\\": "src/"
         }
     }
 }

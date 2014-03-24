@@ -1,9 +1,9 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 /**
- * @coversDefaultClass Spiffy\Router\RouteMatch
+ * @coversDefaultClass Spiffy\Route\RouteMatch
  */
 class RouterMatchTest extends \PHPUnit_Framework_TestCase
 {

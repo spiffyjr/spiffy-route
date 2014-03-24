@@ -1,9 +1,9 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 /**
- * @coversDefaultClass \Spiffy\Router\Router
+ * @coversDefaultClass \Spiffy\Route\Router
  */
 class RouterTest extends \PHPUnit_Framework_TestCase
 {
@@ -30,8 +30,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers ::add, \Spiffy\Router\Exception\RouteExistsException::__construct
-     * @expectedException \Spiffy\Router\Exception\RouteExistsException
+     * @covers ::add, \Spiffy\Route\Exception\RouteExistsException::__construct
+     * @expectedException \Spiffy\Route\Exception\RouteExistsException
      * @expectedExceptionMessage The route with name "foo" already exists
      */
     public function testAddingSameRouteNameThrowsException()
@@ -67,14 +67,14 @@ class RouterTest extends \PHPUnit_Framework_TestCase
         $router->add('foo', '/foo');
         $router->add(null, '/bar');
 
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $router->match('/bar'));
-        $this->assertInstanceOf('Spiffy\Router\RouteMatch', $router->match('/foo'));
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $router->match('/bar'));
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $router->match('/foo'));
         $this->assertNull($router->match('/does/not/exist'));
     }
 
     /**
-     * @covers ::assemble, \Spiffy\Router\Exception\RouteDoesNotExistException::__construct
-     * @expectedException \Spiffy\Router\Exception\RouteDoesNotExistException
+     * @covers ::assemble, \Spiffy\Route\Exception\RouteDoesNotExistException::__construct
+     * @expectedException \Spiffy\Route\Exception\RouteDoesNotExistException
      * @expectedExceptionMessage The route with name "foo" does not exist
      */
     public function testAssembleThrowsExceptionOnInvalidRouteName()

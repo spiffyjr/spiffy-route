@@ -1,9 +1,9 @@
 <?php
 
-namespace Spiffy\Router;
+namespace Spiffy\Route;
 
 /**
- * @coversDefaultClass Spiffy\Router\RouteFactory
+ * @coversDefaultClass Spiffy\Route\RouteFactory
  */
 class RouterFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,7 +14,7 @@ class RouterFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $factory = new RouteFactory();
         $route = $factory->create('foo', '/foo');
-        $this->assertInstanceOf('Spiffy\Router\Route', $route);
+        $this->assertInstanceOf('Spiffy\Route\Route', $route);
     }
 
     /**
@@ -27,7 +27,7 @@ class RouterFactoryTest extends \PHPUnit_Framework_TestCase
         $factory = new RouteFactory();
         $route = $factory->create('foo', '/foo', ['defaults' => $defaults]);
 
-        $this->assertInstanceOf('Spiffy\Router\Route', $route);
+        $this->assertInstanceOf('Spiffy\Route\Route', $route);
         $this->assertSame($defaults, $route->getDefaults());
     }
 }

@@ -1,20 +1,20 @@
 # SpiffyRouter
 
-[![Build Status](https://travis-ci.org/spiffyjr/spiffy-router.svg)](https://travis-ci.org/spiffyjr/spiffy-router)
-[![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/badges/coverage.png?s=ef1ff5a501ca851edf629fbf1fe85f66b7616672)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/badges/quality-score.png?s=c538c960c0d883f379b700eecdee865d08a532e3)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-router/)
+[![Build Status](https://travis-ci.org/spiffyjr/spiffy-route.svg)](https://travis-ci.org/spiffyjr/spiffy-route)
+[![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/coverage.png?s=ef1ff5a501ca851edf629fbf1fe85f66b7616672)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/quality-score.png?s=c538c960c0d883f379b700eecdee865d08a532e3)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
 
 ## Installation
-Spiffy\Router can be installed using composer which will setup any autoloading for you.
+Spiffy\Route can be installed using composer which will setup any autoloading for you.
 
-`composer require spiffy/spiffy-router`
+`composer require spiffy/spiffy-route`
 
 Additionally, you can download or clone the repository and setup your own autoloading.
 
 ## Adding routes
 
 ```php
-use Spiffy\Router\Router;
+use Spiffy\Route\Router;
 
 $router = new Router();
 
@@ -47,7 +47,7 @@ $router->add('foo', '/foo/{id:\d+}{-slug?:[a-zA-Z-_]+}');
 ## Assembling named routes to url's
 
 ```php
-use Spiffy\Router\Router;
+use Spiffy\Route\Router;
 
 $router = new Router();
 $router->add('foo', '/foo');
@@ -67,7 +67,7 @@ echo $router->assemble('foo', ['id' => 1, 'slug' => 'bar']);
 ## Matching routes
 
 ```php
-use Spiffy\Router\Router;
+use Spiffy\Route\Router;
 
 $router = new Router();
 $router->add('foo', '/foo');
@@ -75,7 +75,7 @@ $router->add('foo', '/foo');
 // result is NULL
 echo $router->match('/bar');
 
-// result is an instance of Spiffy\Router\RouteMatch
+// result is an instance of Spiffy\Route\RouteMatch
 $match = $router->match('/foo');
 
 // output is 'foo'
@@ -83,7 +83,7 @@ echo $match->getName();
 
 $router->add('bar', '/bar/{id}');
 
-// result is an instance of Spiffy\Router\RouteMatch
+// result is an instance of Spiffy\Route\RouteMatch
 $match = $router->match('/bar/1');
 
 // output is 'bar'
@@ -99,7 +99,7 @@ echo $match->get('does-not-exist', 'foo');
 ## Default route parameters
 
 ```php
-use Spiffy\Router\Router;
+use Spiffy\Route\Router;
 
 $router = new Router();
 $router->add('foo', '/foo{/id?}', ['defaults' => ['id' => 1, 'controller' => 'foo-controller']]);
