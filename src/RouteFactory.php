@@ -7,10 +7,17 @@ class RouteFactory
     /**
      * @param string $name
      * @param string $path
+     * @param array $options
      * @return Route
      */
-    public function create($name, $path)
+    public function create($name, $path, array $options = [])
     {
-        return new Route($name, $path);
+        $route = new Route($name, $path);
+
+        if (isset($options['defaults'])) {
+            $route->setDefaults($options['defaults']);
+        }
+
+        return $route;
     }
 }

@@ -34,16 +34,17 @@ class Router
     /**
      * @param string|null $name
      * @param string $path
-     * @return \Spiffy\Router\Route
+     * @param array $options
      * @throws Exception\RouteExistsException
+     * @return \Spiffy\Router\Route
      */
-    public function add($name, $path)
+    public function add($name, $path, array $options = [])
     {
         if (null !== $name && $this->routes->offsetExists($name)) {
             throw new Exception\RouteExistsException($name);
         }
 
-        $route = $this->routeFactory->create($name, $path);
+        $route = $this->routeFactory->create($name, $path, $options);
         if (null === $name) {
             $this->routes[] = $route;
             return $route;

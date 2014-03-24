@@ -31,6 +31,16 @@ class RouterMatchTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::get
+     */
+    public function testGetWithDefault()
+    {
+        $route = new Route('foo', '/foo');
+        $match = new RouteMatch($route);
+        $this->assertSame(1, $match->get('id', 1));
+    }
+
+    /**
      * @covers ::getParams
      */
     public function testGetParams()

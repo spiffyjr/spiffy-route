@@ -134,4 +134,29 @@ class RouteTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('/foo/1', $route->assemble(['id' => 1]));
         $this->assertSame('/foo/1-test', $route->assemble(['id' => 1, 'slug' => 'test']));
     }
+
+    /**
+     * @cowers ::match, ::init, ::setDefaults
+     */
+    public function testMatchWithDefaults()
+    {
+        $route = new Route('foo', '/foo');
+        $route->setDefaults(['controller' => 'foo']);
+
+        $match = $route->match('/foo');
+        $this->assertSame('foo', $match->get('controller'));
+    }
+
+    /**
+     * @covers ::setDefaults, ::getDefaults
+     */
+    public function testRouteDefaults()
+    {
+        $defaults = ['controller' => 'foo'];
+
+        $route = new Route('foo', '/foo');
+        $route->setDefaults($defaults);
+
+        $this->assertSame($defaults, $route->getDefaults());
+    }
 }

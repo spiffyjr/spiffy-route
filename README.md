@@ -91,4 +91,28 @@ echo $match->getName();
 
 // output is '1'
 echo $match->get('id');
+
+// you can also have defaults for params that may not exist (output is 'foo')
+echo $match->get('does-not-exist', 'foo');
 ```
+
+## Default route parameters
+
+```php
+use Spiffy\Router\Router;
+
+$router = new Router();
+$router->add('foo', '/foo{/id?}', ['defaults' => ['id' => 1, 'controller' => 'foo-controller']]);
+
+$match = $router->match('/foo/1234');
+
+// output is '1234'
+echo $match->get('id');
+
+$match = $router->match('/foo');
+
+// output is '1'
+echo $match->get('id');
+
+// output is 'foo-controller'
+echo $match->get('controller');

@@ -20,14 +20,14 @@ class Route
     protected $regex;
 
     /**
-     * @var array
-     */
-    protected $defaults = [];
-
-    /**
      * @var null|\SplFixedArray
      */
     protected $tokens;
+
+    /**
+     * @var array
+     */
+    protected $defaults = [];
 
     /**
      * @param string $name
@@ -53,7 +53,8 @@ class Route
                     unset($matches[$index]);
                 }
             }
-            return new RouteMatch($this, $matches);
+
+            return new RouteMatch($this, array_merge($this->defaults, $matches));
         }
         return false;
     }
@@ -103,6 +104,22 @@ class Route
     public function getPath()
     {
         return $this->path;
+    }
+
+    /**
+     * @param array $defaults
+     */
+    public function setDefaults($defaults)
+    {
+        $this->defaults = $defaults;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDefaults()
+    {
+        return $this->defaults;
     }
 
     /**
