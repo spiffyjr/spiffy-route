@@ -1,8 +1,8 @@
 # SpiffyRoute
 
 [![Build Status](https://travis-ci.org/spiffyjr/spiffy-route.svg)](https://travis-ci.org/spiffyjr/spiffy-route)
-[![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/coverage.png?s=ef1ff5a501ca851edf629fbf1fe85f66b7616672)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/quality-score.png?s=c538c960c0d883f379b700eecdee865d08a532e3)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
+[![Code Coverage](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/coverage.png?s=1b7dca9d06b1fd7329a6bf9c10fefa552d4be863)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/badges/quality-score.png?s=b3a343fc3a2b1ea7fd244499e29ec28d71693fa2)](https://scrutinizer-ci.com/g/spiffyjr/spiffy-route/)
 
 ## Installation
 Spiffy\Route can be installed using composer which will setup any autoloading for you.
