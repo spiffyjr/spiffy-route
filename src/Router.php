@@ -57,7 +57,7 @@ class Router
     /**
      * @param string $uri
      * @param array $server
-     * @return null
+     * @return RouteMatch|null
      */
     public function match($uri, array $server = null)
     {

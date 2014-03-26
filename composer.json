@@ -18,5 +18,10 @@
         "psr-4": {
             "Spiffy\\Route\\": "src/"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "1.0.x-dev"
+        }
     }
 }
