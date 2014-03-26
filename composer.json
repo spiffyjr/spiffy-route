@@ -6,7 +6,7 @@
             "email": "theman@spiffyjr.me"
         }
     ],
-    "description": "SpiffyRoute is a light-weight, HHVM compatible, and dependency free router library.",
+    "description": "Spiffy\\Route is a light-weight, HHVM compatible, and dependency free router library.",
     "require": {
         "php": ">=5.4"
     },
