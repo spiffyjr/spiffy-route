@@ -19,7 +19,7 @@ class RouterMatchTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @covers :;set
+     * @covers ::set
      */
     public function testSet()
     {
