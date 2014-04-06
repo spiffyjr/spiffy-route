@@ -26,12 +26,29 @@ class RouteMatch
 
     /**
      * @param string $key
+     * @param mixed $value
+     */
+    public function set($key, $value)
+    {
+        $this->params[$key] = $value;
+    }
+
+    /**
+     * @param string $key
      * @param null|mixed $default
      * @return mixed
      */
     public function get($key, $default = null)
     {
         return isset($this->params[$key]) ? $this->params[$key] : $default;
+    }
+
+    /**
+     * @param array $params
+     */
+    public function setParams(array $params)
+    {
+        $this->params = $params;
     }
 
     /**
