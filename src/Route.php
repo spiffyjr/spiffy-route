@@ -30,6 +30,11 @@ class Route
     protected $defaults = [];
 
     /**
+     * @var array
+     */
+    protected $methods = [];
+
+    /**
      * @param string $name
      * @param string $path
      */
@@ -41,13 +46,23 @@ class Route
 
     /**
      * @param string $uri
+     * @param null $server
      * @return bool|RouteMatch
      */
-    public function match($uri)
+    public function match($uri, $server = null)
     {
         $this->init();
+        $path = parse_url($uri, PHP_URL_PATH);
 
-        if (preg_match('@^' . $this->regex . '$@', $uri, $matches)) {
+        if (!empty($this->methods)) {
+            $method = isset($server['REQUEST_METHOD']) ? strtolower($server['REQUEST_METHOD']) : 'get';
+
+            if (!in_array($method, $this->methods)) {
+                return false;
+            }
+        }
+
+        if (preg_match('@^' . $this->regex . '$@', $path, $matches)) {
             foreach ($matches as $index => $match) {
                 if (is_numeric($index)) {
                     unset($matches[$index]);
@@ -109,7 +124,7 @@ class Route
     /**
      * @param array $defaults
      */
-    public function setDefaults($defaults)
+    public function setDefaults(array $defaults)
     {
         $this->defaults = $defaults;
     }
@@ -120,6 +135,25 @@ class Route
     public function getDefaults()
     {
         return $this->defaults;
+    }
+
+    /**
+     * @param array|null $methods
+     */
+    public function setMethods(array $methods)
+    {
+        foreach ($methods as &$method) {
+            $method = strtolower($method);
+        }
+        $this->methods = $methods;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getMethods()
+    {
+        return $this->methods;
     }
 
     /**
@@ -146,7 +180,7 @@ class Route
                 if ($optional) {
                     $replace = sprintf('(?:%s(?<%s>%s))?', str_replace($name, '', $fullString), $name, $constraint);
                 } else {
-                    $replace = sprintf('(?<%s>%s)%s', $name, $constraint, ($optional ? '?' : ''));
+                    $replace = sprintf('(?<%s>%s)', $name, $constraint);
                 }
 
                 $this->regex = str_replace($matches[0][$index], $replace, $this->regex);

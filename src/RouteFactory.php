@@ -18,6 +18,10 @@ class RouteFactory
             $route->setDefaults($options['defaults']);
         }
 
+        if (isset($options['methods'])) {
+            $route->setMethods($options['methods']);
+        }
+
         return $route;
     }
 }

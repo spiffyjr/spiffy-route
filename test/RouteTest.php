@@ -37,12 +37,35 @@ class RouteTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers ::getMethods
+     */
+    public function testGetMethods()
+    {
+        $route = new Route('foo', '/bar');
+        $this->assertEmpty($route->getMethods());
+        $route->setMethods(['get']);
+        $this->assertSame(['get'], $route->getMethods());
+    }
+
+    /**
      * @covers ::init, ::match
      */
     public function testNoMatchForRegexEndOfLine()
     {
         $route = new Route('foo', '/foobar');
         $this->assertFalse($route->match('/foo'));
+    }
+
+    /**
+     * @covers ::init, ::match
+     */
+    public function testMatchWithMethods()
+    {
+        $r = new Route('foo', '/foobar');
+        $r->setMethods(['get']);
+
+        $this->assertFalse($r->match('/foobar', ['REQUEST_METHOD' => 'post']));
+        $this->assertInstanceOf('Spiffy\Route\RouteMatch', $r->match('/foobar', ['REQUEST_METHOD' => 'get']));
     }
 
     /**
