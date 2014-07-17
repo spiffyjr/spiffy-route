@@ -5,7 +5,7 @@ namespace Spiffy\Route;
 class Router
 {
     /**
-     * @var Route[]
+     * @var \ArrayObject
      */
     protected $routes;
 
@@ -24,7 +24,7 @@ class Router
     }
 
     /**
-     * @return \Spiffy\Route\Route[]
+     * @return \ArrayObject
      */
     public function getRoutes()
     {
@@ -61,6 +61,7 @@ class Router
      */
     public function match($uri, array $server = null)
     {
+        /** @var Route $route */
         foreach ($this->routes as $route) {
             if ($match = $route->match($uri, $server)) {
                 return $match;
@@ -80,6 +81,9 @@ class Router
         if (!$this->routes->offsetExists($name)) {
             throw new Exception\RouteDoesNotExistException($name);
         }
-        return $this->routes[$name]->assemble($params);
+        
+        /** @var Route $route */
+        $route = $this->routes[$name];
+        return $route->assemble($params);
     }
 }
